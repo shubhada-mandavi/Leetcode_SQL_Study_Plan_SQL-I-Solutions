@@ -1,0 +1,8 @@
+SELECT  Employees.employee_id
+FROM Employees
+WHERE Employees.employee_id not in (SELECT employee_id FROM Salaries)
+UNION
+SELECT  Salaries.employee_id
+FROM Salaries
+WHERE Salaries.employee_id not in (SELECT employee_id FROM Employees)
+Order by employee_id
